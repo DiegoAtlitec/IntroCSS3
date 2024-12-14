@@ -1,9 +1,12 @@
 :root {
-    --background: #121212;
+    --maincolor: #ff6347;
+    --bgcolor: #e55342;
     --blanco: #ffffff;
     --verde: #1db954;
-    --color-dark: #000000;
+    --negro: #000000;
     --color-sidebar: #181818;
+    --amarillo: #ffc638;
+    --darkred: #aa2a2a;
 }
 
 body {
@@ -15,7 +18,7 @@ body {
 }
 
 header {
-    background-color: #ff6347;
+    background-color: var(--maincolor);
     color: white;
     padding: 20px;
     text-align: center;
@@ -42,20 +45,50 @@ h1 {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
-    display: flex;
-    flex-direction: column;
+    display: flex; 
+    flex-direction: column; 
     align-items: center;
+    position: relative; 
 }
 
 .photo-card img {
     width: 100%;
-    height: 300px;
+    height: auto;
     object-fit: cover;
     cursor: pointer;
+    transition: filter 0.3s;
+}
+
+.photo-card img:hover {
+    filter: brightness(70%);
+}
+
+.photo-card:hover .save-button { 
+    opacity: 1;
+}
+
+.save-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+    opacity: 0;
+    transition: opasity 0.3;
+}
+
+.save-button:hover {
+    background-color: var(--darkred);
 }
 
 .like-button {
-    background-color: #ff6347;
+    background-color: var(--maincolor);
     color: white;
     border: none;
     padding: 12px;
@@ -64,7 +97,6 @@ h1 {
     cursor: pointer;
     font-size: 25px;
     transition: background-color 0.2s;
-    size: 3px;
 }
 
 .like-button:hover {
@@ -83,53 +115,58 @@ footer {
 }
 
 .sidebar {
-  width: 55px;
-  background-color: #333;
-  color: var(--color-sidebar);
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
+    width: 55px;
+    background-color: var(--color-sidebar);
+    color: var(--color-sidebar);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar nav {
-  display: flex;
-  flex-direction: column;
-  height: 100%; 
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
 }
 
 .sidebar nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar nav ul:first-child {
-  flex-grow: 1; 
+    flex-grow: 1; 
 }
 
 .sidebar nav ul li {
-  padding: 15px;
-  text-align: center;
+    padding: 15px;
+    text-align: center;
 }
 
 .sidebar nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    color: var(--blanco);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sidebar nav ul li a:hover {
+    color: var(--amarillo);
 }
 
 .sidebar nav ul li a i {
-  font-size: 20px;
-  margin-bottom: 5px;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .settings {
-  padding-bottom: 10px;
-  border-top: 2px solid #444;
+    padding-bottom: 10px;
+    border-top: 2px solid #444;
 }
+
